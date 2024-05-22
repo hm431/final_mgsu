@@ -1,0 +1,7 @@
+.jobs__list {
+    display: grid;
+    grid-template-columns: 375px 375px;
+    grid-template-rows: 50px 50px;
+    row-gap: 50px;
+    column-gap: 95px;
+}
