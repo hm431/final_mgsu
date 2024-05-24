@@ -14,9 +14,9 @@ const weekly_daily = new mongoose.Schema({
     unique: true,
   },
   brigade_id: { // TODO сделать связку.
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
     required: true,
-    unique: true,
+    ref: 'user',
   },
  
 });
