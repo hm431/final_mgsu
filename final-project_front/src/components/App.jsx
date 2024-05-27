@@ -5,8 +5,8 @@ import Jobs from './Jobs';
 import Machines from './Machines';
 import Login from './LogIn';
 import ProtectedRoute from './ProtectedRoute';
-import InfoTooltip from './InfoTooltip'
-
+import InfoTooltip from './InfoTooltip';
+import MachineList from './MachineList';
 
 
 const App = () => {
@@ -50,6 +50,11 @@ const App = () => {
             element={<ProtectedRoute
               loggedIn={loggedIn}
               element={Machines} />} />
+          <Route
+            path="/MachineList"
+            element={<ProtectedRoute
+              loggedIn={loggedIn}
+              element={MachineList} />} />
 
 
           <Route
