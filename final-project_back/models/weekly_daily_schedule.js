@@ -8,12 +8,12 @@ const weekly_daily = new mongoose.Schema({
     required: true,
     unique: true,
   },
-    start_date_of_work: { // Название ГЭСН.
+    start_date_of_work: { 
     type: Date,
     required: true,
     unique: true,
   },
-  brigade_id: { // TODO сделать связку.
+  brigade_id: { // 
     type: mongoose.Schema.Types.ObjectId,
     required: true,
     ref: 'user',

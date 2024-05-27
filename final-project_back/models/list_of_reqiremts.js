@@ -30,17 +30,17 @@ const list_of_reqiremts = new mongoose.Schema({
     unique: true,
   },
 
-  machine_id: { // TODO Сделать привзку
-    type: String,
+  machine_id: { //  Сделать привзку
+    type: mongoose.Schema.Types.ObjectId,
     required: true,
-    unique: true,
+    ref: 'user',
   },
-  materials_id: { //TODO сделать привызку
-    type: String,
+  materials_id: { // сделать привызку
+    type: mongoose.Schema.Types.ObjectId,
     required: true,
-    unique: true,
+    ref: 'user',
   }
 
 });
 
-module.exports = mongoose.model('list_of_basic_constructior', list_of_basic_constructior);
+module.exports = mongoose.model('ist_of_reqiremts', list_of_reqiremts);

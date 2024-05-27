@@ -8,23 +8,23 @@ const list_of_basic_constructior = new mongoose.Schema({
     required: true,
     unique: true,
   },
-  constuction_materials: { // Название ГЭСН.
+  constuction_materials: { 
     type: String,
     required: true,
     unique: true,
   },
-  unit_materials: { // Единицы измерения ГЭСН.
+  unit_materials: { 
     type: String,
     required: true,
     unique: true,
   },
-  consumption_of_buildings: { // Единицы измерения ГЭСН.
+  consumption_of_buildings: {
     type: String,
     required: true,
     unique: true,
   },
 
-  quantity_materials: { // Единицы измерения ГЭСН.
+  quantity_materials: { 
     type: String,
     required: true,
     unique: true,

@@ -8,12 +8,12 @@ const brigade = new mongoose.Schema({
     required: true,
     unique: true,
   },
-  name: { // Название ГЭСН.
+  name: { 
     type: String,
     required: true,
     unique: true,
   },
-  discharge: { // Единицы измерения ГЭСН.
+  discharge: { 
     type: String,
     required: true,
     unique: true,

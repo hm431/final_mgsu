@@ -8,22 +8,22 @@ const list_of_work_volumes = new mongoose.Schema({
     required: true,
     unique: true,
   },
-  name: { // Название ГЭСН.
+  name: { 
     type: String,
     required: true,
     unique: true,
   },
-  sees_id: { // Единицы измерения ГЭСН. TODO: Посмотреть на то, как работает связка
+  sees_id: { 
     type: String,
     required: true,
     unique: true,
   },
-  determinatiom: { // Единицы измерения ГЭСН. TODO: Посмотреть на то, как работает связка
+  determinatiom: { 
     type: String,
     required: true,
     unique: true,
   },
-  
+
  
 });
 

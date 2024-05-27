@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 // const { ObjectId } = mongoose.Schema.Types;
 // напишите код здесь
-const brigade = new mongoose.Schema({
+const bill_of_quantites = new mongoose.Schema({
   id: { 
     type: String,
     required: true,
@@ -37,4 +37,4 @@ const brigade = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model('brigade', brigade);
+module.exports = mongoose.model('bill_of_quantites', bill_of_quantites);

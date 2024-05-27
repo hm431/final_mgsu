@@ -3,32 +3,31 @@ const mongoose = require('mongoose');
 // const { ObjectId } = mongoose.Schema.Types;
 // напишите код здесь
 const sees = new mongoose.Schema({
-  code: { //  код ГЭСН.
+  code: { 
     type: String,
     required: true,
     unique: true,
   },
-  name: { // Название ГЭСН.
+  name: { 
     type: String,
     required: true,
     unique: true,
   },
-  units: { // Единицы измерения ГЭСН.
+  units: { 
     type: String,
     required: true,
     unique: true,
   },
-  name_machine: { // Наименование машины, которая используется в ГЭСН.
+  name_machine: { 
     type: String,
     required: true,
     unique: true,
   },
-  number_machine: { // Кодичество машин используемое в ГЭСН.
+  number_machine: { 
     type: String,
     required: true,
     unique: true,
   },
- 
 });
 
 module.exports = mongoose.model('sees', sees);

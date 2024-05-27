@@ -8,23 +8,22 @@ const stasment_of_person = new mongoose.Schema({
     required: true,
     unique: true,
   },
-    worker_name: { // Название ГЭСН.
-    type: Date,
-    required: true,
-    unique: true,
-  },
-  worker_discharge: { //TODO привязку хочу  
+    worker_name: { 
     type: String,
     required: true,
     unique: true,
+  },
+  worker_discharge: {   
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: 'user',
   },
  
-  worker_number: { //TODO привязку хочу 
-    type: String,
+  worker_number: {  
+    type: mongoose.Schema.Types.ObjectId,
     required: true,
-    unique: true,
+    ref: 'user',
   },
-
 });
 
-module.exports = mongoose.model('weekly_daily', weekly_daily);
+module.exports = mongoose.model('stasment_of_person', stasment_of_person);

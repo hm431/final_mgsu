@@ -8,12 +8,12 @@ const bildings = new mongoose.Schema({
     required: true,
     unique: true,
   },
-  name: { // Название ГЭСН.
+  name: { 
     type: String,
     required: true,
     unique: true,
   },
-  summory: { // Единицы измерения ГЭСН.
+  summory: { 
     type: String,
     required: true,
     unique: true,
