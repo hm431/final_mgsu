@@ -1,0 +1,9 @@
+.jobs__button{
+   border-top-right-radius: 90px;
+   border-bottom-left-radius: 80px;
+   background-color: Lavender;
+   font-family: Inter;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 400;
+}

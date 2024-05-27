@@ -73,4 +73,6 @@
 @import url(./blocs/jobs/jobs__button/jobs__button.css);
 @import url(./blocs/jobs/jobs__header/jobs__header.css);
 @import url(./blocs/jobs/jobs__list/jobs__list.css);
+@import url(./blocs/job/job__button/job__button.css);
 @import url(./blocs/tableJobs/tableJobs.css);
+@import url(./blocs/job/job__buttons/job__buttons.css);

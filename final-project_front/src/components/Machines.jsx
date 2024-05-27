@@ -1,120 +1,119 @@
-import React from 'react';
-import { useTable, useSortBy } from 'react-table';
-import { CurrentUserContext } from '../contexts/CurrentUserContext';
+
 import Header from './Header';
 import { useNavigate } from "react-router-dom";
 
-function SortingTable() { //Шаблон таблицы для задач
-    
+import React, { useEffect } from 'react';
+
+import { CurrentUserContext } from '../contexts/CurrentUserContext';
+
+import SortingTable from './SortingTable';
+import Footer from './Footer';
+function Jobs() {
+
+
+
+    //создвние стейта currentUser
     const [currentUser, changeCurrentUser] = React.useState({});
-    // Определение данных и столбцов как раньше
+
+
+
+
+    const navigate = useNavigate();
+
+
+
+
+
     const data = React.useMemo( //Тут должны быть входные данные
-        () => [
-            {
-                col1: 'Hello',
-                col2: 'World'
-            },
-            {
-                col1: 'react-table',
-                col2: 'rocks'
-            },
-            {
-                col1: 'Привет',
-                col2: 'Мир'
-            },
-            {
-                col1: 'react-table',
-                col2: 'это круто'
-            },
-            // Дополнительные данные...
-        ],
-        []
-    );
-
-    const columns = React.useMemo( // Тут должны быть формы, которые используются таблицей 
-        () => [
-            {
-                Header: 'Column 1',
-                accessor: 'col1', // accessor является "ключом" для данных
-            },
-            {
-                Header: 'Column 2',
-                accessor: 'col2',
-            },
-            {
-                Header: 'Column 3',
-                accessor: 'col3',
-            },
-            // Дополнительные столбцы...
-        ],
-        []
-    );
-
-    // Используем хуки useTable и useSortBy
-    const {
-        getTableProps,
-        getTableBodyProps,
-        headerGroups,
-        rows,
-        prepareRow,
-    } = useTable(
+    () => [
         {
-            columns,
-            data,
+            col1: '1',
+            col2: '24535',
+            col3: '«Галичанин КС-74721-2» ',
+            col4: 'Грузоподъемность',
+            col5: '70',
+            col6: 'ВНС, обслуживающая 500 квартир',
+            col7: '500'
         },
-        useSortBy // Теперь useSortBy управляет состоянием сортировки
-    );
+        {
+            col1: '2',
+            col2: '324234',
+            col3: '«Ивановец КС-45717А-1P» ',
+            col4: 'Грузоподъемность',
+            col5: '25',
+            col6: 'ВНС, обслуживающая 500 квартир',
+            col7: '343'
+        },
+        {
+            col1: '3',
+            col2: '345345435',
+            col3: '«Гали КС-7472422221-2» ',
+            col4: 'Грузоподъемность',
+            col5: '25',
+            col6: 'ВНС, обслуживающая 45 квартир',
+            col7: '666'
+        },
 
-    // Рендерим UI вашей таблицы
+        
+    ],
+    []
+);
+
+const columns = React.useMemo( // Тут должны быть формы, которые используются таблицей 
+    () => [
+        {
+            Header: '№ п.п.',
+            accessor: 'col1', // accessor является "ключом" для данных
+        },
+        {
+            Header: 'Гос. номер',
+            accessor: 'col2',
+        },
+        {
+            Header: 'Наименование техники',
+            accessor: 'col3',
+        },
+        {
+            Header: 'Основная характеристика',
+            accessor: 'col4',
+        },
+        {
+            Header: 'Значение основной характеристики',
+            accessor: 'col5',
+        },
+        {
+            Header: 'Наименование объекта',
+            accessor: 'col6',
+        },
+        {
+            Header: 'Машино-часы',
+            accessor: 'col7',
+        },
+        // Дополнительные столбцы...
+    ],
+    []
+);
+
+
     return (
-
-
-
         <CurrentUserContext.Provider value={currentUser}>
-        <div className="page">
-            <Header nameOfHeaderLink={'Выйти'} isProfil={"true"} linkOfHeaderLink={'/login'} />
-
-            <div class="jobs">
-            <table {...getTableProps()}>
-             <thead>
-            {headerGroups.map(headerGroup => (
-                <tr {...headerGroup.getHeaderGroupProps()}>
-                    {headerGroup.headers.map(column => (
-                        <th {...column.getHeaderProps(column.getSortByToggleProps())}>
-                            {column.render('Header')}
-                            {/* Добавляем текстовый индикатор сортировки */}
-                            <span>
-                                {column.isSorted
-                                    ? column.isSortedDesc
-                                        ? ' ↓'
-                                        : ' ↑'
-                                    : ''}
-                            </span>
-                        </th>
-                    ))}
-                </tr>
-            ))}
-        </thead>
-            <tbody {...getTableBodyProps()}>
-                {rows.map((row, i) => {
-                    prepareRow(row);
-                    return (
-                        <tr {...row.getRowProps()}>
-                            {row.cells.map(cell => {
-                                return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>;
-                            })}
-                        </tr>
-                    );
-                })}
-            </tbody>
-        </table>
+            <div className="page">
+                <Header nameOfHeaderLink={'Выйти'} isProfil={"true"} linkOfHeaderLink={'/login'} />
+                <div class="tableJobs">
+                    <SortingTable
+                    columns={columns}
+                    data={data}
+                    />
+                    <div className='job__buttons'>
+                    <button className='job__button'> Реестр объектов </button>
+                    <button className='job__button job__button_blue'> Релиз </button>
+                    </div>
+                </div>
             </div>
-
-
-        </div>
-
-    </CurrentUserContext.Provider>
-    )
+            <Footer/>
+        </CurrentUserContext.Provider>
+    );
 }
 
-export default SortingTable;
+
+export default Jobs;

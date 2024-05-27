@@ -84,7 +84,7 @@ function Jobs() {
                     </div>
                 </div>
 
-
+                <Footer/>
             </div>
         </CurrentUserContext.Provider>
     );
