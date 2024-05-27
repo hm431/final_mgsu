@@ -99,6 +99,7 @@ const columns = React.useMemo( // Тут должны быть формы, ко�
         <CurrentUserContext.Provider value={currentUser}>
             <div className="page">
                 <Header nameOfHeaderLink={'Выйти'} isProfil={"true"} linkOfHeaderLink={'/login'} />
+                <h1 className='job__header'>Ведомость потребности машин и механизмов</h1>
                 <div class="tableJobs">
                     <SortingTable
                     columns={columns}
