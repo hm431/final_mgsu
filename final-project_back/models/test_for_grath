@@ -1,0 +1,169 @@
+
+
+Table Statement_of_the_presence_and_condition_of_machines_and_mechanisms{
+  Machine_id integer [primary key]
+  Machine_tipe varchar
+  Machine_name varchar
+  Machine_t_ch varchar
+  Machine_main_ch integer
+  Machine_is_working bool
+  Machine_is_repair bool
+  Machine_number integer
+}
+
+Table Bill_of_quantities {
+  Quantities_id integer [primary key]
+  Quantities_works varchar
+  Quantities_macher_units varchar
+  Quantities_value integer
+  Quantities_object varchar
+  Quantities_GPM varchar
+}
+
+Table Seels {
+  Seels_id integer [primary key]
+  Seels_name varchar
+  Seels_code varchar
+  Seels_machers_units varchar
+  Seels_name_mech varchar
+  Seels_value_mech_hours varchar
+}
+
+Table object {
+  object_id integer [primary key]
+  object_name varchar
+}
+// Выходной док
+Table statements_of_the_needs_of_machines_and_mechanisms_for_the_facility{
+  Statment_id integer [primary key]
+  object_name varchar
+  Machine_id integer
+  Machine_tipe varchar
+  Machine_name varchar
+  Machine_t_ch varchar
+  Machine_main_ch intege
+  Machine_number integer
+  Stament_time integer
+
+}
+
+
+
+Table brigade {
+  Brigade_id integer [primary key]
+  number_of_workers varchar
+  Brigade_prise integer
+  Brigade_workers varchar
+  Brigade_qolification varchar
+}
+
+Table worker {
+  Worker_id integer [primary key]
+  Worker_tipe varchar
+  Worker_degrie varchar
+  Worker_price integer
+}
+
+Table Tariff_and_qualification_guide{
+  Tariff_id integer [primary key]
+  Tariff_units varchar
+  Brigade_qalification varchar
+  Tariff_Expenses varchar
+  Tariff_prise varchar
+}
+
+Table The_schedule_of_works_on_the_improvement_of_the_territory_at_the_facilities {
+  Ennoblement_id integer
+  Building_id integer
+  Work_id integer
+  Ennoblemen_start date
+  Ennoblemen_end date
+}
+
+
+Table Weekly_daily_schedule_of_work_at_the_facilities{
+  Weekly_daily_id integer [primary key]
+  Weekly_daily_work_name varchar
+  Weekly_daily_work_start date
+  Weekly_daily_work_scope varchar
+  Weekly_daily_worker_brigade integer
+  Weekly_daily_work_volume integer
+}
+
+Table The_teams_specialization{
+  Brigade_id integer
+  Work_if integer
+}
+
+Table Grath {
+  Oblect_name integer
+  SMR integer
+  outsra integer
+  wair integer
+  days integer
+}
+
+Table Day {
+  day_id integer [primary key]
+  is_working bool
+}
+
+Table Statement_of_the_distribution_of_performers_to_the_site{
+  brigade_id integer
+  spesiety varchar
+  spesiety_number varchar
+  worker_number integer
+  work_start date
+  work_scope varchar
+}
+
+
+Ref: "object"."object_name" < "statements_of_the_needs_of_machines_and_mechanisms_for_the_facility"."object_name"
+
+Ref: "Statement_of_the_presence_and_condition_of_machines_and_mechanisms"."Machine_id" < "statements_of_the_needs_of_machines_and_mechanisms_for_the_facility"."Machine_id"
+
+
+
+Ref: "Statement_of_the_presence_and_condition_of_machines_and_mechanisms"."Machine_tipe" < "statements_of_the_needs_of_machines_and_mechanisms_for_the_facility"."Machine_tipe"
+
+Ref: "Statement_of_the_presence_and_condition_of_machines_and_mechanisms"."Machine_name" < "statements_of_the_needs_of_machines_and_mechanisms_for_the_facility"."Machine_name"
+
+Ref: "Statement_of_the_presence_and_condition_of_machines_and_mechanisms"."Machine_t_ch" < "statements_of_the_needs_of_machines_and_mechanisms_for_the_facility"."Machine_t_ch"
+
+Ref: "Statement_of_the_presence_and_condition_of_machines_and_mechanisms"."Machine_number" < "statements_of_the_needs_of_machines_and_mechanisms_for_the_facility"."Machine_number"
+
+Ref: "Statement_of_the_presence_and_condition_of_machines_and_mechanisms"."Machine_main_ch" < "statements_of_the_needs_of_machines_and_mechanisms_for_the_facility"."Machine_main_ch"
+
+Ref: "worker"."Worker_id" < "brigade"."Brigade_workers"
+
+Ref: "object"."object_name" < "The_schedule_of_works_on_the_improvement_of_the_territory_at_the_facilities"."Building_id"
+
+Ref: "brigade"."Brigade_qolification" < "Tariff_and_qualification_guide"."Brigade_qalification"
+
+Ref: "Seels"."Seels_name" < "The_schedule_of_works_on_the_improvement_of_the_territory_at_the_facilities"."Work_id"
+
+Ref: "Bill_of_quantities"."Quantities_works" < "Seels"."Seels_name"
+
+Ref: "statements_of_the_needs_of_machines_and_mechanisms_for_the_facility"."Machine_tipe" < "The_schedule_of_works_on_the_improvement_of_the_territory_at_the_facilities"."Ennoblement_id"
+
+Ref: "brigade"."number_of_workers" < "Weekly_daily_schedule_of_work_at_the_facilities"."Weekly_daily_worker_brigade"
+
+Ref: "Seels"."Seels_name" < "Weekly_daily_schedule_of_work_at_the_facilities"."Weekly_daily_work_name"
+
+Ref: "Bill_of_quantities"."Quantities_value" < "Weekly_daily_schedule_of_work_at_the_facilities"."Weekly_daily_work_volume"
+
+Ref: "The_teams_specialization"."Brigade_id" < "brigade"."Brigade_id"
+
+Ref: "The_teams_specialization"."Work_if" < "Seels"."Seels_id"
+
+Ref: "Day"."day_id" > "Grath"."days"
+
+Ref: "object"."object_name" < "Grath"."Oblect_name"
+
+Ref: "Statement_of_the_distribution_of_performers_to_the_site"."brigade_id" < "brigade"."Brigade_id"
+
+Ref: "Statement_of_the_distribution_of_performers_to_the_site"."spesiety" < "brigade"."Brigade_qolification"
+
+Ref: "Statement_of_the_distribution_of_performers_to_the_site"."spesiety_number" < "brigade"."Brigade_qolification"
+
+Ref: "Statement_of_the_distribution_of_performers_to_the_site"."worker_number" < "brigade"."number_of_workers"

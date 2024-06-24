@@ -49,6 +49,7 @@ app.post('/signup', celebrate({
 
 app.use('/movies', auth, require('./routes/movies'));
 app.use('/users', auth, require('./routes/users'));
+app.use('/tasks', require('./routes/tasks'));
 
 app.use('/', () => {
   throw new NotFound('Путь не найден');
